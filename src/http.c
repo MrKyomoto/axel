@@ -371,7 +371,7 @@ http_size_from_range(http_t *conn)
 void
 http_filename(const http_t *conn, char *filename, size_t size)
 {
-  const char *header = http_header(conn, "Content-Disposition");
+  const char *header = http_header(conn, "Content-Disposition:");
 
   http_content_disposition_filename(header, filename, size);
 }

@@ -43,22 +43,23 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-struct http_parameter {
-  const char *value;
-  size_t length;
-  bool quoted;
+struct http_parameter
+{
+	const char *value;
+	size_t length;
+	bool quoted;
 };
 
 bool http_find_parameter(const char *header, const char *name,
-                         struct http_parameter *parameter);
+			 struct http_parameter *parameter);
 
 bool http_copy_parameter(char *dest, size_t size,
-                         const struct http_parameter *parameter);
+			 const struct http_parameter *parameter);
 
 bool http_decode_extended_parameter(char *dest, size_t size,
-                                    const struct http_parameter *parameter);
+				    const struct http_parameter *parameter);
 
 bool http_content_disposition_filename(const char *header, char *filename,
-                                       size_t size);
+				       size_t size);
 
 #endif /* AXEL_HTTP_PARAMS_H */
